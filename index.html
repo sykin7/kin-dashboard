@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <style>
+        /* --- CSS样式已最小化/混淆 --- */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');:root{--text-color:#e0e0e0;--title-color:#fff;--glass-bg:rgba(25,25,45,.4);--glass-border:rgba(255,255,255,.15);--hover-border:rgba(150,100,255,.8);--hover-shadow:rgba(150,100,255,.3)}*{box-sizing:border-box;margin:0;padding:0}html{font-size:16px}body{font-family:'Noto Sans SC',sans-serif;background:#0d0d1a;background-image:radial-gradient(circle at 15% 50%,rgba(120,80,220,.3),transparent 30%),radial-gradient(circle at 85% 30%,rgba(80,150,220,.3),transparent 30%),radial-gradient(circle at 70% 80%,rgba(220,80,120,.2),transparent 30%);color:var(--text-color);padding:20px 15px;width:100%;min-height:100vh;display:flex;align-items:center;justify-content:center;user-select:none;-webkit-user-select:none;cursor:default}.main-container{width:100%;max-width:900px;margin:20px auto;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);box-shadow:0 8px 32px 0 rgba(0,0,0,.3);padding:30px;position:relative;z-index:10}header{text-align:center;margin-bottom:40px}header h1{font-size:2.8rem;font-weight:700;color:var(--title-color);text-shadow:0 0 10px var(--hover-shadow)}.category-section{margin-bottom:35px}.category-title{font-size:1.2rem;font-weight:500;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid var(--glass-border);color:var(--title-color);text-transform:uppercase;letter-spacing:1px}.link-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}.link-card{background:rgba(255,255,255,.05);border-radius:10px;padding:15px;text-decoration:none;color:var(--text-color);display:flex;align-items:center;border:1px solid transparent;transition:all .3s ease}.link-card:hover{color:#fff;transform:translateY(-5px) scale(1.02);box-shadow:0 10px 20px var(--hover-shadow);border-color:var(--hover-border);background:rgba(255,255,255,.1)}.link-card img{width:22px;height:22px;margin-right:12px;border-radius:4px}.link-card span{font-size:.95rem;font-weight:400}.floating-widget{position:fixed;z-index:1000;transition:all .3s ease}.widget-header{cursor:move}#music-player-wrapper{bottom:20px;right:20px}#player-minimized-view{width:64px;height:64px;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:50%;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,.3);cursor:grab;display:flex;align-items:center;justify-content:center}#player-minimized-view:hover{transform:scale(1.1);border-color:var(--hover-border)}#player-minimized-view:active{cursor:grabbing}#player-minimized-view svg{width:32px;height:32px;fill:var(--title-color);animation:spin 8s linear infinite;pointer-events:none}@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}#player-expanded-view{width:360px;height:520px;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);box-shadow:0 8px 32px 0 rgba(0,0,0,.3);display:flex;flex-direction:column;overflow:hidden}#player-header{padding:8px;background:rgba(0,0,0,.2);text-align:right}#music-player-iframe{flex-grow:1;border:none;width:100%;height:100%}#player-minimize-button{background:none;border:none;width:24px;height:24px;cursor:pointer;padding:0}#player-minimize-button svg{width:24px;height:24px;stroke:var(--text-color)}#player-minimize-button:hover svg{stroke:#fff}#music-player-wrapper.expanded #player-minimized-view{display:none}#music-player-wrapper:not(.expanded) #player-expanded-view{display:none}#live2d-widget{position:fixed;z-index:999;cursor:default;pointer-events:none}#live2d-widget canvas{pointer-events:initial}#info-widget{position:fixed;top:20px;left:20px;z-index:1001;padding:10px 15px;font-size:.8rem;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:8px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,.3);display:flex;align-items:center}#tg-contact-widget{position:fixed;top:20px;right:20px;z-index:1001;padding:10px 15px;font-size:.8rem;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:8px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,.3);display:flex;align-items:center;text-decoration:none;color:var(--text-color);transition:all .3s ease}#tg-contact-widget:hover{color:#fff;text-shadow:0 0 5px var(--hover-shadow);border-color:var(--hover-border);transform:scale(1.05)}#tg-contact-widget svg{width:18px;height:18px;margin-right:8px;fill:currentColor}#info-widget span{display:inline-block;vertical-align:middle}#real-time-clock{font-weight:500;color:var(--title-color);margin-right:12px;letter-spacing:1px}#location-link{text-decoration:none;color:var(--text-color);transition:color .3s ease;cursor:pointer;margin-right:12px}#location-link:hover{color:#fff;text-shadow:0 0 5px var(--hover-shadow)}#weather-info{color:#ffd;font-weight:400}#map-modal{display:none;position:fixed;z-index:2000;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.7);align-items:center;justify-content:center}.modal-content{position:relative;width:80%;height:80%;max-width:1200px;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);box-shadow:0 8px 32px 0 rgba(0,0,0,.3);padding:15px}#modal-close-button{position:absolute;top:-15px;right:-15px;width:32px;height:32px;border-radius:50%;border:1px solid var(--glass-border);background:var(--glass-bg);color:#fff;font-size:20px;cursor:pointer;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}#map-iframe{width:100%;height:100%;border-radius:8px;border:none}@media (max-width:768px){body{align-items:flex-start}.main-container{padding:20px}header h1{font-size:2.2rem}#player-expanded-view{width:90vw;height:60vh}#info-widget{display:flex;top:unset;left:50%;bottom:15px;transform:translateX(-50%)}#tg-contact-widget{top:unset;bottom:15px;right:15px;font-size:0;padding:12px;width:44px;height:44px;justify-content:center}#tg-contact-widget span{display:none}#tg-contact-widget svg{margin-right:0}.modal-content{width:95%;height:75%}}
+    </style>
+</head>
+<body>
+    <a id="tg-contact-widget" href="https://t.me/AGsykin_bot/" target="_blank" title="有事call我，没事也行">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.5,11.1l-17.9-9C2.7,1.7,1.7,2.5,2.1,3.4l2.5,6.7L16,12L4.6,13.9l-2.5,6.7c-0.3,0.9,0.6,1.7,1.5,1.2l17.9-9 C22.2,12.5,22.2,11.5,21.5,11.1z"></path></svg>
+        <span>在线摇人</span>
+    </a>
+
+    <div id="info-widget">
+        <span id="real-time-clock">--:--:--</span>
+        <a id="location-link" title="点击查看地图">
+            <span id="ip-location">正在获取位置...</span>
+        </a>
+        <span id="weather-info">天气加载中...</span>
+    </div>
+
+    <div class="main-container">
+        <header><h1>KIN</h1></header>
+        <section class="category-section">
+            <h2 class="category-title">常用工具</h2>
+            <div class="link-grid">
+                <a href="https://www.google.com/" class="link-card" target="_blank"><img src="https://www.google.com/s2/favicons?sz=64&domain_url=www.google.com" alt="Google"><span>Google</span></a>
+                <a href="https://github.com/" class="link-card" target="_blank"><img src="https://www.google.com/s2/favicons?sz=64&domain_url=github.com" alt="GitHub"><span>GitHub</span></a>
+                <a href="https://www.youtube.com/" class="link-card" target="_blank"><img src="https://www.google.com/s2/favicons?sz=64&domain_url=www.youtube.com" alt="YouTube"><span>YouTube</span></a>
+                <a href="https://www.bilibili.com/" class="link-card" target="_blank"><img src="https://www.google.com/s2/favicons?sz=64&domain_url=www.bilibili.com" alt="Bilibili"><span>Bilibili</span></a>
+                <a href="https://vnc.sykin.xx.kg" class="link-card" target="_blank"><img src="https://www.google.com/s2/favicons?sz=64&domain_url=vnc.sykin.xx.kg" alt="ubuntu"><span>ubuntu</span></a>
+                <a href="https://mail.serv00.com/" class="link-card" target="_blank"><img src="https://www.google.com/s2/favicons?sz=64&domain_url=mail.serv00.com" alt="WebMail"><span>WebMail</span></a>
+                <a href="https://ping0.cc/" class="link-card" target="_blank"><img src="https://www.google.com/s2/favicons?sz=64&domain_url=ping0.cc" alt="Ping.cc"><span>Ping.cc</span></a>
+                <a href="https://iplark.com/" class="link-card" target="_blank"><img src="https://www.google.com/s2/favicons?sz=64&domain_url=iplark.com" alt="IP Lark"><span>IP Lark</span></a>
+            </div>
+        </section>
+        <section class="category-section">
+            <h2 class="category-title">影音娱乐</h2>
+            <div class="link-grid">
+                <a href="https://ys.sykin.dpdns.org" class="link-card" target="_blank"><img src="https://www.google.com/s2/favicons?sz=64&domain_url=ys.sykin.dpdns.org" alt="LibreTV"><span>LibreTV</span></a>
+                <a href="https://www.sooplive.co.kr" class="link-card" target="_blank"><img src="https://www.google.com/s2/favicons?sz=64&domain_url=www.sooplive.co.kr" alt="Sooplive"><span>Sooplive</span></a>
+                <a href="https://www.pandalive.co.kr" class="link-card" target="_blank"><img src="https://www.google.com/s2/favicons?sz=64&domain_url=www.pandalive.co.kr" alt="Pandalive"><span>Pandalive</span></a>
+                <a href="https://lk.sykin.xx.kg/" class="link-card" target="_blank"><img src="https://www.google.com/s2/favicons?sz=64&domain_url=lk.sykin.xx.kg" alt="sapTV"><span>sapTV</span></a>
+            </div>
+        </section>
+        <section class="category-section">
+            <h2 class="category-title">新闻资讯</h2>
+            <div class="link-grid">
+                <a href="https://www.xinhuanet.com/" class="link-card" target="_blank"><img src="https://www.google.com/s2/favicons?sz=64&domain_url=www.xinhuanet.com" alt="新华网"><span>新华网</span></a>
+                <a href="https://www.people.com.cn/" class="link-card" target="_blank"><img src="https://www.google.com/s2/favicons?sz=64&domain_url=www.people.com.cn" alt="人民网"><span>人民网</span></a>
+            </div>
+        </section>
+    </div>
+
+    <div id="music-player-wrapper" class="floating-widget">
+        <div id="player-minimized-view" title="展开播放器">
+            <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M512 1024C229.216 1024 0 794.784 0 512S229.216 0 512 0s512 229.216 512 512-229.216 512-512 512z m0-960C264.992 64 64 264.992 64 512s200.992 448 448 448 448-200.992 448-448S759.008 64 512 64z"></path><path d="M512 768c-141.152 0-256-114.848-256-256s114.848-256 256-256 256 114.848 256 256-114.848 256-256 256z m0-448c-105.856 0-192 86.144-192 192s86.144 192 192 192 192-86.144 192-192-86.144-192-192-192z"></path><path d="M512 576c-35.296 0-64-28.704-64-64s28.704-64 64-64 64 28.704 64 64-28.704 64-64 64z m0-64c-0.032 0-0.064 0-0.096 0-0.032 0-0.032 0-0.032 0z"></path></svg>
+        </div>
+        <div id="player-expanded-view">
+            <div id="player-header" class="widget-header">
+                 <button id="player-minimize-button" title="最小化">
+                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.9201 8.9502L13.4001 15.4702C12.6301 16.2402 11.3701 16.2402 10.6001 15.4702L4.08008 8.9502" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                 </button>
+            </div>
+            <iframe id="music-player-iframe" data-src="https://tonzhon.com/" allow="autoplay"></iframe>
+        </div>
+    </div>
+    
+    <div id="map-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="modal-close-button" title="关闭">×</button>
+            <iframe id="map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+    <div id="live2d-widget"></div>
+    
+    <script>
+        /* --- JS脚本已合并方案一功能并最小化/混淆 --- */
+        document.oncontextmenu=function(){return false};document.onkeydown=function(e){const k=e.key;if(e.keyCode===123||(e.ctrlKey&&e.shiftKey&&(k==='I'||k==='J'||k==='C'))||(e.ctrlKey&&k==='U')){return false}};document.addEventListener('DOMContentLoaded',function(){const clockElement=document.getElementById('real-time-clock');const locationLink=document.getElementById('location-link');const locationElement=document.getElementById('ip-location');const weatherElement=document.getElementById('weather-info');const mapModal=document.getElementById('map-modal');const mapIframe=document.getElementById('map-iframe');const closeModalButton=document.getElementById('modal-close-button');const playerWrapper=document.getElementById('music-player-wrapper');const minimizedView=document.getElementById('player-minimized-view');const minimizeButton=document.getElementById('player-minimize-button');const playerHeader=document.getElementById('player-header');const OPENWEATHER_API_KEY="e9fc010cebcd2ce192e9f64d4d383359";function updateClock(){clockElement.textContent=(new Date).toLocaleTimeString('zh-CN')}updateClock();setInterval(updateClock,1000);function fetchWeather(lat,lon){fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=zh_cn&appid=${OPENWEATHER_API_KEY}`).then(r=>r.json()).then(d=>{if(d.weather&&d.main){weatherElement.textContent=`${Math.round(d.main.temp)}°C ${d.weather[0].description}`}else{throw new Error('Weather data invalid')}}).catch(()=>{weatherElement.textContent="天气获取失败"})}function fetchLocation(){fetch('https://api.ip.sb/geoip').then(r=>r.json()).then(d=>{if(d.ip&&d.latitude&&d.longitude){locationElement.textContent=`${d.ip} · ${d.city||d.region||'未知'}`;locationLink.dataset.lat=d.latitude;locationLink.dataset.lon=d.longitude;fetchWeather(d.latitude,d.longitude);locationLink.href='javascript:void(0)';locationLink.onclick=null}else{throw new Error('API response invalid')}}).catch(()=>{locationElement.textContent='位置获取失败';weatherElement.textContent="天气加载失败";locationLink.href='#';locationLink.onclick=e=>{e.preventDefault();window.location.reload()}})}fetchLocation();locationLink.addEventListener('click',function(e){e.preventDefault();const lat=this.dataset.lat;const lon=this.dataset.lon;if(lat&&lon){mapIframe.src=`https://www.openstreetmap.org/export/embed.html?bbox=${parseFloat(lon)-.1},${parseFloat(lat)-.1},${parseFloat(lon)+.1},${parseFloat(lat)+.1}&layer=mapnik&marker=${lat},${lon}`;mapModal.style.display='flex'}});function closeModal(){mapModal.style.display='none';mapIframe.src=''}closeModalButton.addEventListener('click',closeModal);mapModal.addEventListener('click',function(e){if(e.target===mapModal)closeModal()});function makeDraggable(element,handle){const dragHandle=handle||element;let isDragging=false,wasDragged=false,startX,startY,offsetX=0,offsetY=0;function onPointerMove(e){if(!isDragging)return;wasDragged=true;const dx=e.clientX-startX;const dy=e.clientY-startY;offsetX=dx;offsetY=dy;element.style.transform=`translate(${dx}px, ${dy}px)`}function onPointerUp(e){if(!isDragging)return;dragHandle.releasePointerCapture(e.pointerId);isDragging=false;if(wasDragged){const rect=element.getBoundingClientRect();element.style.left=(rect.left-offsetX)+'px';element.style.top=(rect.top-offsetY)+'px'}element.style.transform='none';setTimeout(()=>{wasDragged=false},50)}dragHandle.addEventListener('pointerdown',function(e){if(e.target.closest('#player-minimize-button')||e.button!==0)return;e.preventDefault();e.stopPropagation();dragHandle.setPointerCapture(e.pointerId);isDragging=true;wasDragged=false;const rect=element.getBoundingClientRect();element.style.left=rect.left+'px';element.style.top=rect.top+'px';element.style.right='auto';element.style.bottom='auto';element.style.transform='none';startX=e.clientX;startY=e.clientY;offsetX=0;offsetY=0;dragHandle.addEventListener('pointermove',onPointerMove,{passive:true});dragHandle.addEventListener('pointerup',onPointerUp)});return()=>wasDragged}const wasIconDragged=makeDraggable(playerWrapper,minimizedView);makeDraggable(playerWrapper,playerHeader);function resetPlayerPosition(){playerWrapper.style.left='';playerWrapper.style.top='';playerWrapper.style.right='20px';playerWrapper.style.bottom='20px';playerWrapper.style.transform='none'}minimizedView.addEventListener('click',()=>{if(!wasIconDragged()){playerWrapper.classList.add('expanded');resetPlayerPosition()}});minimizeButton.addEventListener('click',()=>{playerWrapper.classList.remove('expanded');resetPlayerPosition()});setTimeout(()=>{const musicFrame=document.getElementById('music-player-iframe');if(musicFrame&&!musicFrame.src)musicFrame.src=musicFrame.dataset.src},2000);(function loadLive2D(){try{L2Dwidget.init({model:{jsonPath:"https://cdn.jsdelivr.net/npm/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json"},display:{position:"left",width:180,height:320,hOffset:10,vOffset:-20},mobile:{show:false},react:{opacityDefault:.85,opacityOnHover:1}})}catch(e){}})()});
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js" defer></script>
+</body>
+</html>
