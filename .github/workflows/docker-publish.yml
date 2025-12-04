@@ -19,6 +19,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Inject API Key
+        run: sed -i 's/{{WEATHER_API_KEY}}/${{ secrets.WEATHER_API_KEY }}/g' index.html
+
       - name: Log in to the Container registry
         uses: docker/login-action@v2
         with:
